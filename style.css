@@ -1,0 +1,254 @@
+/* ======================= Global Styles & Variables ======================= */
+:root {
+    --primary-color: #ffc107; /* أصفر مميز زي اللي في معدات البناء */
+    --dark-color: #1a1a1a;
+    --secondary-dark: #2c2c2c;
+    --light-color: #f4f4f4;
+    --font-family: 'Tajawal', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ======================= Navbar Styling ======================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 0;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--dark-color);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+}
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+.nav-links a {
+    color: white;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+.menu-icon {
+    display: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ======================= Hero Section Styling ======================= */
+#hero {
+    height: 100vh;
+    background: url('imgs/hero-background.jpg') no-repeat center center/cover;
+   position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+/* تقدر تغير الصورة دي بصورة من صور العميل */
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* طبقة سوداء شفافة بنسبة 60% */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-button {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    padding: 0.8rem 2.5rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* Intro Animation */
+.animate-on-load {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+.hero-content h1 { animation-delay: 0.2s; }
+.hero-content p { animation-delay: 0.4s; }
+.hero-content .hero-button { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ======================= About Us Section Styling ======================= */
+#about {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+#about .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center; /* هذه الخاصية تضمن أن النص والصورة في نفس المستوى */
+}
+
+.about-content span {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.about-content h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.about-image img {
+    width: 100%;
+    height: 450px; /* 1. نحدد ارتفاع ثابت للصورة */
+    object-fit: cover; /* 2. هذا هو السطر الأهم لحل المشكلة */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Scroll Animation */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about-content.animate-on-scroll { transform: translateX(50px); }
+.about-image.animate-on-scroll { transform: translateX(-50px); }
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* ======================= Responsive Design ======================= */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 60%;
+        height: 100vh;
+        background-color: var(--secondary-dark);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease-in-out;
+    }
+    .nav-links.active {
+        right: 0; /* Slide in */
+    }
+    .cta-button { display: none; }
+    .menu-icon { display: block; }
+
+    .hero-content h1 { font-size: 2.5rem; }
+    
+    #about .container { grid-template-columns: 1fr; }
+    .about-image { order: -1; margin-bottom: 2rem; } /* تخلي الصورة فوق الكلام في الموبايل */
+}
