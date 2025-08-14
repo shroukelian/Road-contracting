@@ -23,6 +23,7 @@ body {
     background-color: var(--light-color);
     color: var(--dark-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
