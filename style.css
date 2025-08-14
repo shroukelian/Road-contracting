@@ -89,7 +89,131 @@ ul { list-style: none; }
 .video-modal-content { position: relative; width: 90%; max-width: 900px; }
 .video-modal-content iframe { width: 100%; aspect-ratio: 16 / 9; }
 .close-video { position: absolute; top: -40px; right: 0; color: white; font-size: 2.5rem; cursor: pointer; }
+/* ======================= CTA Section (New Design) ======================= */
+#cta {
+    position: relative;
+    padding: 6rem 0;
+    background: url('imgs/hero-background.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* يعطي تأثير parallax الجميل */
+    text-align: center;
+    color: white;
+}
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* طبقة داكنة أقوى */
+}
+.cta-content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.cta-content h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+.cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: rgba(244, 244, 244, 0.9);
+}
+.cta-main-button {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.cta-main-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+}
 
+/* ======================= Scroll Animation (إضافة لتأثير الـ Zoom-in) ======================= */
+/* هذا الكود الجديد للأنيميشن */
+.cta-content.animate-on-scroll:not(.is-visible) {
+    opacity: 0;
+    transform: scale(0.8);
+}
+/* ======================= Contact Section ======================= */
+#contact { padding: 6rem 0; background-color: white; }
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* الفورم يأخذ مساحة أكبر */
+    gap: 3rem;
+    margin-top: 4rem;
+}
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+.contact-info-container h4 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.contact-info-container p { color: #555; margin-bottom: 2rem; }
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
+.contact-list i { font-size: 1.5rem; color: var(--primary-color); margin-left: 1rem; margin-top: 5px; }
+.contact-list h5 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+.contact-list a, .contact-list span { color: #555; }
+
+/* ======================= Footer ======================= */
+footer {
+    background-color: var(--dark-color);
+    color: rgba(244, 244, 244, 0.8);
+    padding-top: 4rem;
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+}
+.footer-about p { margin-top: 1rem; max-width: 350px; }
+.footer-links h4 { color: white; font-size: 1.2rem; margin-bottom: 1rem; }
+.footer-links ul li { margin-bottom: 0.7rem; }
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease; /* <<< هذا السطر مهم للحركة الناعمة */
+}
+.footer-links a:hover {
+    color: var(--primary-color);  /* <<< 1. تغيير اللون إلى الذهبي */
+    padding-right: 8px;           /* <<< 2. دفع النص 8 بكسل لليمين */
+}.footer-bottom {
+    border-top: 1px solid var(--secondary-dark);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(244, 244, 244, 0.6);
+}
+
+/* ======================= Responsive for Contact & Footer ======================= */
+@media (max-width: 768px) {
+    .contact-grid, .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
 /* ======================= Scroll Animation ======================= */
 .animate-on-scroll { transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .animate-on-scroll:not(.is-visible) { opacity: 0; transform: translateY(50px); }
@@ -106,9 +230,14 @@ ul { list-style: none; }
     .hero-content { text-align: center; padding: 0 15px; }
     .hero-content h1 { font-size: 2.5rem; line-height: 1.4; }
     .hero-content p { font-size: 1rem; }
-    .hero-button { padding: 0.7rem 1.8rem; font-size: 1rem; }
+    .hero-button { padding: 0.7rem 1.8rem; font-size: 1rem; cursor: pointer;}
     #about .container { grid-template-columns: 1fr; text-align: center; }
     .about-content h2, .section-title h2 { font-size: 2.2rem; }
     .about-image { order: -1; margin-bottom: 2rem; }
     .about-image img { height: 300px; }
+}
+@media (max-width: 991px) {
+    .why-us-content {
+        margin-top: 2rem;
+    }
 }
