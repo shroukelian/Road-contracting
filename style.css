@@ -1,6 +1,7 @@
 /* ======================= Global Styles & Variables ======================= */
 :root {
-    --primary-color: #ffc107; /* أصفر مميز زي اللي في معدات البناء */
+    --primary-color: #ffc107;
+    /* أصفر مميز زي اللي في معدات البناء */
     --dark-color: #1a1a1a;
     --secondary-dark: #2c2c2c;
     --light-color: #f4f4f4;
@@ -53,7 +54,7 @@ ul {
 .navbar.scrolled {
     background-color: var(--dark-color);
     padding: 0.5rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar .container {
@@ -67,6 +68,7 @@ ul {
     font-weight: 900;
     color: white;
 }
+
 .logo span {
     color: var(--primary-color);
 }
@@ -75,11 +77,13 @@ ul {
     display: flex;
     gap: 1.5rem;
 }
+
 .nav-links a {
     color: white;
     font-weight: 700;
     transition: color 0.3s ease;
 }
+
 .nav-links a:hover {
     color: var(--primary-color);
 }
@@ -92,6 +96,7 @@ ul {
     font-weight: 700;
     transition: transform 0.3s ease;
 }
+
 .cta-button:hover {
     transform: scale(1.05);
 }
@@ -106,14 +111,17 @@ ul {
 /* ======================= Hero Section Styling ======================= */
 #hero {
     height: 100vh;
+    /* هذا السطر كـ Fallback للمتصفحات القديمة جدًا */
+    height: 100svh;
     background: url('imgs/hero-background.jpg') no-repeat center center/cover;
-   position: relative;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
 }
+
 /* تقدر تغير الصورة دي بصورة من صور العميل */
 
 .hero-overlay {
@@ -122,7 +130,8 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* طبقة سوداء شفافة بنسبة 60% */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* طبقة سوداء شفافة بنسبة 60% */
 }
 
 .hero-content {
@@ -130,11 +139,13 @@ ul {
     z-index: 10;
     max-width: 800px;
 }
+
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 900;
     margin-bottom: 1rem;
 }
+
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
@@ -149,6 +160,7 @@ ul {
     font-weight: 700;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .hero-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
@@ -159,15 +171,25 @@ ul {
     animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
 }
-.hero-content h1 { animation-delay: 0.2s; }
-.hero-content p { animation-delay: 0.4s; }
-.hero-content .hero-button { animation-delay: 0.6s; }
+
+.hero-content h1 {
+    animation-delay: 0.2s;
+}
+
+.hero-content p {
+    animation-delay: 0.4s;
+}
+
+.hero-content .hero-button {
+    animation-delay: 0.6s;
+}
 
 @keyframes fadeInUp {
     from {
         transform: translateY(30px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -184,7 +206,8 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: center; /* هذه الخاصية تضمن أن النص والصورة في نفس المستوى */
+    align-items: center;
+    /* هذه الخاصية تضمن أن النص والصورة في نفس المستوى */
 }
 
 .about-content span {
@@ -206,10 +229,12 @@ ul {
 
 .about-image img {
     width: 100%;
-    height: 450px; /* 1. نحدد ارتفاع ثابت للصورة */
-    object-fit: cover; /* 2. هذا هو السطر الأهم لحل المشكلة */
+    height: 450px;
+    /* 1. نحدد ارتفاع ثابت للصورة */
+    object-fit: cover;
+    /* 2. هذا هو السطر الأهم لحل المشكلة */
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Scroll Animation */
@@ -218,8 +243,13 @@ ul {
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.about-content.animate-on-scroll { transform: translateX(50px); }
-.about-image.animate-on-scroll { transform: translateX(-50px); }
+.about-content.animate-on-scroll {
+    transform: translateX(50px);
+}
+
+.about-image.animate-on-scroll {
+    transform: translateX(-50px);
+}
 
 .animate-on-scroll.is-visible {
     opacity: 1;
@@ -236,7 +266,8 @@ ul {
         /* إعدادات القائمة الجانبية المخفية */
         position: fixed;
         top: 0;
-        right: -100%; /* تبدأ خارج الشاشة */
+        right: -100%;
+        /* تبدأ خارج الشاشة */
         width: 70%;
         height: 100vh;
         background-color: var(--secondary-dark);
@@ -244,35 +275,44 @@ ul {
         justify-content: center;
         align-items: center;
         transition: right 0.5s ease-in-out;
-        gap: 2rem; /* زيادة المسافة بين الروابط */
+        gap: 2rem;
+        /* زيادة المسافة بين الروابط */
     }
 
     .nav-links.active {
-        right: 0; /* تظهر عند الضغط على الأيقونة */
+        right: 0;
+        /* تظهر عند الضغط على الأيقونة */
     }
 
     .cta-button {
-        display: none; /* إخفاء زر "اطلب عرض سعر" من الناف بار */
+        display: none;
+        /* إخفاء زر "اطلب عرض سعر" من الناف بار */
     }
 
     .menu-icon {
-        display: block; /* إظهار أيقونة القائمة (الهامبرجر) */
+        display: block;
+        /* إظهار أيقونة القائمة (الهامبرجر) */
     }
 
 
     /* ------ 2. تعديل الـ Hero Section (الصفحة الرئيسية) ------ */
     .hero-content {
-        text-align: center; /* لجعل النص في المنتصف تمامًا */
-        padding: 0 15px; /* لإضافة هوامش على الجانبين ومنع النص من الالتصاق بالحواف */
+        text-align: center;
+        /* لجعل النص في المنتصف تمامًا */
+        padding: 0 15px;
+        /* لإضافة هوامش على الجانبين ومنع النص من الالتصاق بالحواف */
     }
 
     .hero-content h1 {
-        font-size: 2.5rem; /* تصغير حجم الخط الرئيسي بشكل كبير */
-        line-height: 1.4; /* تحسين المسافة بين السطور */
+        font-size: 2.5rem;
+        /* تصغير حجم الخط الرئيسي بشكل كبير */
+        line-height: 1.4;
+        /* تحسين المسافة بين السطور */
     }
 
     .hero-content p {
-        font-size: 1rem; /* تصغير حجم النص الفرعي */
+        font-size: 1rem;
+        /* تصغير حجم النص الفرعي */
     }
 
     .hero-button {
@@ -283,19 +323,24 @@ ul {
 
     /* ------ 3. تعديل سكشن "من نحن" ------ */
     #about .container {
-        grid-template-columns: 1fr; /* تحويل السكشن لعمود واحد بدلًا من عمودين */
+        grid-template-columns: 1fr;
+        /* تحويل السكشن لعمود واحد بدلًا من عمودين */
         text-align: center;
     }
 
     .about-content h2 {
-        font-size: 2.2rem; /* تصغير حجم العنوان هنا أيضًا */
+        font-size: 2.2rem;
+        /* تصغير حجم العنوان هنا أيضًا */
     }
 
     .about-image {
-        order: -1; /* لجعل الصورة تظهر فوق النص على الموبايل */
+        order: -1;
+        /* لجعل الصورة تظهر فوق النص على الموبايل */
         margin-bottom: 2rem;
     }
+
     .about-image img {
-        height: 300px; /* تعديل ارتفاع الصورة ليتناسب مع الموبايل */
+        height: 300px;
+        /* تعديل ارتفاع الصورة ليتناسب مع الموبايل */
     }
 }
