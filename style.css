@@ -238,20 +238,25 @@ ul {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Scroll Animation */
+/* Scroll Animation (Corrected Version) */
+
+/* لا يوجد تنسيق افتراضي مخفي للعناصر */
 .animate-on-scroll {
-    opacity: 0;
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.about-content.animate-on-scroll {
+/* إخفاء العنصر وتحريكه فقط عندما يكون "غير مرئي" */
+.about-content.animate-on-scroll:not(.is-visible) {
+    opacity: 0;
     transform: translateX(50px);
 }
 
-.about-image.animate-on-scroll {
+.about-image.animate-on-scroll:not(.is-visible) {
+    opacity: 0;
     transform: translateX(-50px);
 }
 
+/* عندما يصبح العنصر مرئياً، إعادته لوضعه الطبيعي */
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateX(0);
@@ -322,26 +327,21 @@ ul {
     }
 
 
-    /* ------ 3. تعديل سكشن "من نحن" ------ */
     #about .container {
         grid-template-columns: 1fr;
-        /* تحويل السكشن لعمود واحد بدلًا من عمودين */
         text-align: center;
     }
 
     .about-content h2 {
         font-size: 2.2rem;
-        /* تصغير حجم العنوان هنا أيضًا */
     }
 
     .about-image {
         order: -1;
-        /* لجعل الصورة تظهر فوق النص على الموبايل */
         margin-bottom: 2rem;
     }
 
     .about-image img {
         height: 300px;
-        /* تعديل ارتفاع الصورة ليتناسب مع الموبايل */
     }
 }

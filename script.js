@@ -23,13 +23,11 @@ const scrollElements = document.querySelectorAll('.animate-on-scroll');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         // التحقق إذا كان العنصر حاليًا داخل الشاشة (isIntersecting)
+        // الكود الجديد (يعمل مرة واحدة فقط)
         if (entry.isIntersecting) {
-            // إذا كان داخل الشاشة، أضف الكلاس ليبدأ الأنيميشن
             entry.target.classList.add('is-visible');
-        } else {
-            // (هذا هو الجزء الجديد)
-            // إذا خرج العنصر من الشاشة، قم بإزالة الكلاس لـ "إعادة ضبط" الأنيميشن
-            entry.target.classList.remove('is-visible');
+            // بمجرد ظهور العنصر، نطلب من المراقب التوقف عن مراقبته
+            observer.unobserve(entry.target);
         }
     });
 }, {
