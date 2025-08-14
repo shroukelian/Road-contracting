@@ -50,31 +50,53 @@ ul { list-style: none; }
 }
 
 /* ======================= About Us Section Styling ======================= */
-#about { padding: 6rem 0; background-color: white; overflow: hidden; /* مهم لمنع الـ scroll الأفقي */ }
+#about { padding: 6rem 0; background-color: white; overflow: hidden; }
 #about .container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-.about-content span { color: var(--primary-color); font-weight: 700; font-size: 1.1rem; }
-.about-content h2 { font-size: 2.8rem; font-weight: 900; margin-bottom: 1.5rem; }
+.about-content span, .section-title span { color: var(--primary-color); font-weight: 700; }
+.about-content h2, .section-title h2 { font-size: 2.8rem; font-weight: 900; margin-bottom: 1.5rem; }
 .about-content p { margin-bottom: 1rem; color: #555; }
 .about-image img { width: 100%; height: 450px; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
 
-/* ======================= Scroll Animation (تم التعديل هنا) ======================= */
-.animate-on-scroll {
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* ======================= Services Section Styling (Final Corrected Version) ======================= */
+#services { padding: 6rem 0; }
+.section-title { text-align: center; margin-bottom: 4rem; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.service-card {
+    background-color: white; padding: 2.5rem 2rem; text-align: center;
+    border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* إعدادات الحركة الافتراضية لكل عنصر */
-.about-content.animate-on-scroll:not(.is-visible) {
-    opacity: 0;
-    transform: translateX(50px); /* يبدأ من اليمين (خارج الشاشة) */
+.service-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
-.about-image.animate-on-scroll:not(.is-visible) {
-    opacity: 0;
-    transform: translateY(50px); /* يبدأ من الأسفل */
-}
-/* عندما يصبح العنصر مرئياً، يعود لمكانه الأصلي */
-.animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-}
+.service-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+.service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.service-card p { color: #555; }
+
+/* ======================= Portfolio Section Styling ======================= */
+#portfolio { padding: 6rem 0; background-color: white; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.portfolio-item { position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; }
+.portfolio-item img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.4s ease; }
+.portfolio-item:hover img { transform: scale(1.1); }
+.portfolio-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; padding: 1.5rem; transform: translateY(100%); transition: transform 0.4s ease; }
+.portfolio-item:hover .portfolio-overlay { transform: translateY(0); }
+.portfolio-overlay h3 { margin-bottom: 0.5rem; }
+.video-cta { text-align: center; margin-top: 4rem; }
+.video-cta p { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+.video-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+.video-modal-overlay.active { opacity: 1; visibility: visible; }
+.video-modal-content { position: relative; width: 90%; max-width: 900px; }
+.video-modal-content iframe { width: 100%; aspect-ratio: 16 / 9; }
+.close-video { position: absolute; top: -40px; right: 0; color: white; font-size: 2.5rem; cursor: pointer; }
+
+/* ======================= Scroll Animation ======================= */
+.animate-on-scroll { transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.animate-on-scroll:not(.is-visible) { opacity: 0; transform: translateY(50px); }
+.about-content.animate-on-scroll:not(.is-visible) { opacity: 0; transform: translateX(50px); }
+.about-image.animate-on-scroll:not(.is-visible) { opacity: 0; transform: translateY(50px); }
+.animate-on-scroll.is-visible { opacity: 1; transform: translate(0, 0); }
 
 /* ======================= Responsive Design ======================= */
 @media (max-width: 768px) {
@@ -87,7 +109,7 @@ ul { list-style: none; }
     .hero-content p { font-size: 1rem; }
     .hero-button { padding: 0.7rem 1.8rem; font-size: 1rem; }
     #about .container { grid-template-columns: 1fr; text-align: center; }
-    .about-content h2 { font-size: 2.2rem; }
+    .about-content h2, .section-title h2 { font-size: 2.2rem; }
     .about-image { order: -1; margin-bottom: 2rem; }
     .about-image img { height: 300px; }
 }
