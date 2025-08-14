@@ -258,17 +258,26 @@ ul {
 }
 
 
-/* ======================= Responsive Design ======================= */
 /* ======================= Responsive Design (For Mobile) ======================= */
 @media (max-width: 768px) {
 
-    /* ------ 1. تعديل الـ Navbar ------ */
+    /* ------ تعديل اللوجو للموبايل ------ */
+    .logo {
+        color: var(--dark-color); /* <<-- 1. اللون الافتراضي للوجو أسود */
+        z-index: 101; /* للتأكد من أنه فوق كل شيء */
+    }
+    .logo span {
+        color: var(--primary-color);
+    }
+    .navbar.scrolled .logo {
+        color: white; /* <<-- 2. يعود للون الأبيض عند السكرول */
+    }
+
+    /* ------ تعديل القائمة ------ */
     .nav-links {
-        /* إعدادات القائمة الجانبية المخفية */
         position: fixed;
         top: 0;
         right: -100%;
-        /* تبدأ خارج الشاشة */
         width: 70%;
         height: 100vh;
         background-color: var(--secondary-dark);
@@ -277,71 +286,52 @@ ul {
         align-items: center;
         transition: right 0.5s ease-in-out;
         gap: 2rem;
-        /* زيادة المسافة بين الروابط */
     }
-
     .nav-links.active {
         right: 0;
-        /* تظهر عند الضغط على الأيقونة */
     }
-
     .cta-button {
         display: none;
-        /* إخفاء زر "اطلب عرض سعر" من الناف بار */
     }
 
+    /* ------ تعديل أيقونة القائمة (الهامبرجر) ------ */
     .menu-icon {
         display: block;
-        /* إظهار أيقونة القائمة (الهامبرجر) */
+        color: var(--dark-color); /* <<-- 3. اللون الافتراضي للأيقونة أسود */
+        z-index: 101;
+    }
+    .navbar.scrolled .menu-icon {
+        color: white; /* <<-- 4. تعود للون الأبيض عند السكرول */
     }
 
-
-    /* ------ 2. تعديل الـ Hero Section (الصفحة الرئيسية) ------ */
+    /* ------ تعديلات سكشن الهيدر ومن نحن (كما هي بدون تغيير) ------ */
     .hero-content {
         text-align: center;
-        /* لجعل النص في المنتصف تمامًا */
         padding: 0 15px;
-        /* لإضافة هوامش على الجانبين ومنع النص من الالتصاق بالحواف */
     }
-
     .hero-content h1 {
         font-size: 2.5rem;
-        /* تصغير حجم الخط الرئيسي بشكل كبير */
         line-height: 1.4;
-        /* تحسين المسافة بين السطور */
     }
-
     .hero-content p {
         font-size: 1rem;
-        /* تصغير حجم النص الفرعي */
     }
-
     .hero-button {
         padding: 0.7rem 1.8rem;
         font-size: 1rem;
     }
-
-
-    /* ------ 3. تعديل سكشن "من نحن" ------ */
     #about .container {
         grid-template-columns: 1fr;
-        /* تحويل السكشن لعمود واحد بدلًا من عمودين */
         text-align: center;
     }
-
     .about-content h2 {
         font-size: 2.2rem;
-        /* تصغير حجم العنوان هنا أيضًا */
     }
-
     .about-image {
         order: -1;
-        /* لجعل الصورة تظهر فوق النص على الموبايل */
         margin-bottom: 2rem;
     }
-
     .about-image img {
         height: 300px;
-        /* تعديل ارتفاع الصورة ليتناسب مع الموبايل */
     }
 }
