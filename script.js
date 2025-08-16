@@ -32,11 +32,42 @@ const observer = new IntersectionObserver((entries) => {
 scrollElements.forEach(el => {
     observer.observe(el);
 });
-
-// 4. Video Modal Logic
+// ======================= New Multi-Video Modal Logic =======================
 const playBtn = document.getElementById('play-video-btn');
 const videoModal = document.getElementById('video-modal');
 const closeBtn = document.querySelector('.close-video');
+const videoChoiceCards = document.querySelectorAll('.video-choice-card');
+const youtubePlayer = document.getElementById('youtube-player');
+
+if (playBtn && videoModal && closeBtn) {
+    // 1. فتح نافذة الاختيار
+    playBtn.addEventListener('click', () => {
+        videoModal.classList.add('active');
+    });
+
+    // 2. عند اختيار فيديو
+    videoChoiceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const videoId = card.dataset.videoId;
+            youtubePlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            videoModal.classList.add('video-is-playing');
+        });
+    });
+
+    // 3. عند إغلاق النافذة
+    const closeModal = () => {
+        videoModal.classList.remove('active');
+        videoModal.classList.remove('video-is-playing');
+        youtubePlayer.src = ''; // مهم جداً: إيقاف الفيديو
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            closeModal();
+        }
+    });
+}
 
 // التأكد من أن العناصر موجودة قبل إضافة event listeners
 if (playBtn && videoModal && closeBtn) {
