@@ -147,39 +147,42 @@
         </section>
 
         <!-- Video Modal (النافذة المنبثقة للفيديو) -->
-       <!-- ======================= Video Modal (New Multi-Video Version) ======================= -->
-<div class="video-modal-overlay" id="video-modal">
-    <div class="video-modal-content">
-        <span class="close-video">&times;</span>
+        <!-- ======================= Video Modal (New Multi-Video Version) ======================= -->
+        <div class="video-modal-overlay" id="video-modal">
+            <div class="video-modal-content">
+                <span class="close-video">&times;</span>
 
-        <!-- 1. Video Choices (تظهر في البداية) -->
-        <div class="video-choices">
-            <h3 class="video-choices-title">اختر المشروع الذي تود مشاهدته</h3>
-            <div class="video-choices-grid">
-                <!-- Video 1 -->
-                <div class="video-choice-card" data-video-id="AWShdGjuTfs">
-                    <i class="fas fa-road"></i>
-                    <h4>مشروع تعبيد طرق</h4>
+                <!-- 1. Video Choices (تظهر في البداية) -->
+                <div class="video-choices">
+                    <h3 class="video-choices-title">اختر المشروع الذي تود مشاهدته</h3>
+                    <div class="video-choices-grid">
+                        <!-- Video 1 -->
+                        <div class="video-choice-card" data-video-id="AWShdGjuTfs">
+                            <i class="fas fa-road"></i>
+                            <h4>مشروع تعبيد طرق</h4>
+                        </div>
+                        <!-- Video 2 -->
+                        <div class="video-choice-card" data-video-id="NV0PMCinfDA">
+                            <i class="fas fa-layer-group"></i>
+                            <h4>مشروع تسوية أراضي</h4>
+                        </div>
+                        <!-- Video 3 -->
+                        <div class="video-choice-card" data-video-id="eys2Ji3wDg4">
+                            <i class="fas fa-truck-monster"></i>
+                            <h4>جولة في المعدات</h4>
+                        </div>
+                    </div>
                 </div>
-                <!-- Video 2 -->
-                <div class="video-choice-card" data-video-id="NV0PMCinfDA">
-                    <i class="fas fa-layer-group"></i>
-                    <h4>مشروع تسوية أراضي</h4>
-                </div>
-                <!-- Video 3 -->
-                <div class="video-choice-card" data-video-id="eys2Ji3wDg4">
-                    <i class="fas fa-truck-monster"></i>
-                    <h4>جولة في المعدات</h4>
+
+                <!-- 2. Video Player (مخفي في البداية) -->
+                <div class="video-player-container">
+                    <iframe id="youtube-player" width="560" height="315" src="" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
-
-        <!-- 2. Video Player (مخفي في البداية) -->
-        <div class="video-player-container">
-            <iframe id="youtube-player" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
         <!-- ======================= CTA Section (New Design) ======================= -->
         <section id="cta">
             <div class="cta-overlay"></div>
@@ -188,7 +191,8 @@
                     <h2>هل أنت مستعد لبدء مشروعك؟</h2>
                     <p>فريقنا جاهز لمساعدتك في تحقيق رؤيتك بأعلى جودة وأفضل الأسعار. تواصل معنا الآن للحصول على استشارة
                         وعرض سعر مجاني.</p>
-                    <a href="#" class="cta-main-button">اطلب عرض سعر الآن</a>
+                    <!-- السطر الجديد -->
+                    <a href="https://wa.me/962795779747" target="_blank" class="cta-main-button">اطلب عرض سعر الآن</a>
                 </div>
             </div>
         </section>
@@ -277,7 +281,7 @@
 
     </main> <!-- <<-- 2. وسم الإغلاق يكون هنا في النهاية -->
 
-    
+
 
     <!-- Your JS File -->
     <script src="script.js"></script>
